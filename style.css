@@ -1,0 +1,262 @@
+/*
+Theme Name: The Manitou School Theme
+Theme URI: 
+Author: Aaron Pedersen
+Author URI: http://aaronmadethic.com/
+Description: A WordPress theme for The Manitou School
+Version: 0.1
+License: GNU General Public License
+License URI: 
+Tags: 
+*/
+
+html{
+	width: 100%;
+	height: 100%;
+}
+body{
+	position: relative;
+	font-size: 16px;
+	font-family: arial, sans-serif;
+	width: 100%;
+	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+p{
+	padding: 0;
+	margin: 0;
+}
+a,
+a:link,
+a:visited{
+	color: #000;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+.hide{
+	visibility: hidden;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.invisible{
+	display: none;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.clear{
+	clear:both;
+}
+.float-left{
+	float:left;
+}
+.float-right{
+	float:right;
+}
+.preloader {
+	background:url('images/loading.gif') center center no-repeat;
+	background-size: 34px 43px;
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+.preloader_png {
+	position: absolute;
+    background:url('images/loader_icon.png') center center no-repeat;
+    background-size: 10px 10px;
+    height: 10px;
+	width: 10px;
+	top:5px;
+	left:5px;
+	/*background-image::url('images/loading.gif');*/
+	-moz-animation: spin .5s infinite linear;
+	-webkit-animation: spin .5s infinite linear
+}
+@-moz-keyframes spin {
+    0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+	0% { -webkit-transform:rotate(0deg); }
+	100% { -webkit-transform:rotate(360deg); }
+}
+
+nav.full-p,
+div.full-p,
+section.full-p,
+article.full-p {
+	padding-right: 8px;
+	padding-left: 8px;
+}
+nav.half-p,
+div.half-p,
+section.half-p,
+article.half-p {
+	padding-right: 4px;
+	padding-left: 4px;
+}
+nav.no-p,
+div.no-p,
+section.no-p,
+article.no-p {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+/* =================================
+CLEARFIX
+===================================*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix {
+	display: inline-block;
+}
+html[xmlns] .clearfix {
+	display: block;
+}
+* html .clearfix {
+	height: 1%;
+}
+
+/* =================================
+IMAGE BLUR
+===================================*/
+#home-bg{
+	top: -20px;
+	left: -20px;
+	width: 110%;
+	position: absolute;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	z-index: 5;
+	}
+	#home-bg img{
+		width:110%;
+		-webkit-filter: blur(15px);
+		filter: url('filters.svg#blur');
+		}
+
+
+/* =================================
+PRIMARY NAVIGATION
+===================================*/
+#nav-wrapper{
+	background-color: #f2f2f2;
+	height: 100px;
+	width: 100%;
+	}
+	#nav-container{
+		max-width: 1008px;
+		margin-right: auto;
+		margin-left: auto;
+		}
+		#nav-container nav{
+			height: 100px;
+			}
+			#nav-container nav ul{}
+			#nav-container nav li{
+				float:left;
+				padding-left: 1em;
+			}
+
+
+
+/* =================================
+XXXXXXXXXXX
+===================================*/
+#home-wrapper{
+	position: relative;
+	margin: 8px 0;
+	background-color: white;
+	width: 100%;
+	overflow: hidden;
+	}
+	#home-container {
+		position: relative;
+		z-index: 10;
+		background-color: white;
+		max-width: 1008px;
+		margin-right: auto;
+		margin-left: auto;
+		padding-left: 16px;
+		padding-right: 16px;
+		}
+
+#home-container article{
+
+	}
+	#home-container article .inside {
+		max-width: 244px;
+		height: 465px;
+		background-color: #000;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		}
+		#home-container article .inside .headline{
+			position: relative;
+			padding: 10px;
+			background: rgb(0, 0, 0); /* Fall-back */
+			background: rgba(0, 0, 0, .2);
+			color: #fff;
+			display: inline-block;
+			z-index: 10;
+			top:80%;
+			}
+		#home-container article .inside img{
+			position: absolute;
+			display: block;
+			max-height: 100%;
+			opacity: 0.8;
+			filter: alpha(opacity=80);
+			z-index: 1;
+			}
+			#home-container article .inside img.right{
+				right: -150px;
+				}
+
+
+.rule-4{
+	height: 4px;
+}
+
+.orange-1{
+	background-color: #ef5b28;
+}
+
+@media screen and (max-width: 768px) {
+	#home-wrapper{margin-bottom: 0;}
+
+	#home-container article{
+		padding-bottom: 8px;
+		}
+		#home-container article .inside {
+			position: relative;
+			max-width: 100%;
+			max-height: 300px;
+			}
+			#home-container article .inside img{
+				width: 100%;
+				max-height: none;
+				}
+				#home-container article .inside img.right{
+					right: 0px;
+					}
+}
+
+@media screen and (max-width: 460px) {
+	#home-container article .inside { max-height: 200px; }
+}
