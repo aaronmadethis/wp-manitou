@@ -1,24 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bootstrap 101 Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<?php
+global $post;
+get_header();
+get_template_part( 'nav' );
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+/*
+$my_errors =yp_ajax_get_projects(20);
+<div id="php_console" class="invisible">
+	<?php var_dump($my_errors); ?>
+</div>
+*/
+?>
+<!-- <div id="test"></div> -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+			<?php if( is_home() ) : //home means blog home not actual site home?>
+				<?php get_template_part( 'content', 'archive' ); ?>
+
+			<?php elseif(  is_front_page() ) : ?>
+				<?php get_template_part( 'content', 'home' ); ?>
+
+			<?php elseif(  is_page() ) : ?>
+				<?php get_template_part( 'content', 'page' ); ?>
+
+			<?php else : ?>
+				<section class="container">
+					<div class="row">
+						<div id="no-content" class="col-sx-12">
+							There are no posts or pages.
+						</div>
+					</div>
+				</section>
+			<?php endif; /*is_home*/ ?>
+
+
+
+<?php get_footer(); ?>

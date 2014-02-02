@@ -15,25 +15,46 @@ if ( function_exists( 'add_image_size' ) ) {
 /* ================================================================================
 ADD MENUS AND POST FORMAT SUPPORT
 ================================================================================ */
-if ( ! function_exists( 'yp_wp_setup' ) ) {
+if ( ! function_exists( 'tms_wp_setup' ) ) {
 
-	function yp_wp_setup() {
+	function tms_wp_setup() {
 		register_nav_menus( array( 'main' => 'Main Menu' ) );
 
 		add_theme_support( 'post-formats', array( 'aside', 'image', 'gallery', 'audio', 'video') );
 	}
+
 }
 
-add_action( 'after_setup_theme', 'yp_wp_setup' );
+add_action( 'after_setup_theme', 'tms_wp_setup' );
+
+
+/* ================================================================================
+REGISTER OUR SIDEBARS AND WIDGETIZED AREAS.
+================================================================================ */
+function manitou_widgets_init() {
+
+	register_sidebar(
+		array(
+			'id' => 'page',
+			'name' => __( 'Page' ),
+			'description' => __( 'Pages sidebar' ),
+			'before_widget' => '<div id="%1$s" class="sidebar-item sidebar-home widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<div class="title widget-title">',
+			'after_title' => '</div>'
+		)
+	);
+}
+add_action( 'widgets_init', 'manitou_widgets_init' );
 
 
 /* ================================================================================
 SET CONTENT WIDTH DEPENDING ON PAGE
 ================================================================================ */
 if( in_category( 'blog' ) ){
-	$content_width = 760;
+	$content_width = 660;
 }else{
-	$content_width = 760;
+	$content_width = 660;
 }
 
 /* ================================================================================
@@ -76,10 +97,27 @@ function red_color( $atts, $content = null ) {
 
 add_shortcode( 'red_color', 'red_color' );
 
+/* ================================================================================
+OVERRIDE IMG CAPTION SHORTCODE TO FIX 10PX ISSUE.
+================================================================================ */
+add_filter('img_caption_shortcode', 'fix_img_caption_shortcode', 10, 3);
+
+function fix_img_caption_shortcode($val, $attr, $content = null) {
+    extract(shortcode_atts(array(
+        'id'    => '',
+        'align' => '',
+        'width' => '',
+        'caption' => ''
+    ), $attr));
+
+    if ( 1 > (int) $width || empty($caption) ) return $val;
+
+    return '<div id="' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . (0 + (int) $width) . 'px">' . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+}
 
 /* ================================================================================
 FUNCTIONS FOR REMOVING IMAGE ATTRIBUTES FROM POSTS
-================================================================================ */
+================================================================================ 
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
 add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
 
@@ -87,6 +125,7 @@ function remove_thumbnail_dimensions( $html ) {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
 }
+*/
 
 /* ================================================================================
 FUNCTIONS FOR ADDING JAVASCRIPTS
@@ -97,18 +136,18 @@ function my_script_enqueuer() {
 
 	wp_enqueue_script('jquery');
 
-	$modernizr_url = get_bloginfo('template_directory') . '/js/vendor/modernizr-2.6.1.min.js';
+	$modernizr_url = get_bloginfo('template_directory') . '/js/modernizr-2.6.1.min.js';
 	wp_enqueue_script('modernizr', $modernizr_url);
 
-	$masonry_url = get_bloginfo('template_directory') . '/js/vendor/jquery.masonry.min.js';
-	wp_enqueue_script('masonry', $masonry_url, array('jquery', 'modernizr', 'plugins'), '', true);
+	$bootstrap_url = get_bloginfo('template_directory') . '/js/bootstrap.min.js';
+	wp_enqueue_script('bootstrap', $bootstrap_url, array('jquery', 'modernizr'), '', true);
 
 	$display_script_url = get_bloginfo('template_directory') . '/js/display-0.1.js';
 	$plugins = get_bloginfo('template_directory') . '/js/plugins-0.1.js';
 	wp_enqueue_script('plugins', $plugins, array('jquery', 'modernizr'), '', true);
-	wp_enqueue_script('display_script', $display_script_url, array('jquery', 'modernizr', 'plugins', 'masonry'), '', true);
+	wp_enqueue_script('display_script', $display_script_url, array('jquery', 'modernizr', 'plugins'), '', true);
 
-	wp_enqueue_style( 'grid', get_template_directory_uri() . '/css/grid.css' );
+	wp_enqueue_style( 'bootstrap_css', get_template_directory_uri() . '/css/bootstrap.min.css' );
 }
 
 ?>

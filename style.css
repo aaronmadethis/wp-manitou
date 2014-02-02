@@ -10,6 +10,21 @@ License URI:
 Tags: 
 */
 
+
+/*
+font-family: "museo-slab",serif;
+font-style: normal;
+font-weight: 500;
+
+font-family: "jubilat",sans-serif;
+font-style: normal;
+font-weight: 400;
+
+font-family: "futura-pt",sans-serif;
+font-style: normal;
+font-weight: 500;
+*/
+
 html{
 	width: 100%;
 	height: 100%;
@@ -151,11 +166,11 @@ IMAGE BLUR
 
 
 /* =================================
-PRIMARY NAVIGATION
+PRIMARY NAVIGATION DESKTOP
 ===================================*/
 #nav-wrapper{
 	background-color: #f2f2f2;
-	height: 100px;
+	min-height: 100px;
 	width: 100%;
 	}
 	#nav-container{
@@ -163,15 +178,175 @@ PRIMARY NAVIGATION
 		margin-right: auto;
 		margin-left: auto;
 		}
-		#nav-container nav{
-			height: 100px;
+		#nav-container #logo a{
+			display: block;
+			width: 193px;
+			height: 81px;
+			padding-top: 9px
 			}
-			#nav-container nav ul{}
-			#nav-container nav li{
-				float:left;
-				padding-left: 1em;
+			#nav-container #logo a img{
+				max-width: 100%;
+				}
+
+		#nav-container nav.desktop{
+			font-family: "futura-pt",sans-serif;
+			font-style: normal;
+			font-weight: 500;
+			height: 100px;
+			-webkit-font-smoothing: antialiased;
+			float:right;
 			}
 
+		#nav-container nav.desktop{ font-size: 100%; }
+		@media screen and (max-width: 1210px) {
+			#nav-container nav.desktop{ font-size: 90%; }
+		}
+
+			#nav-container nav.desktop .menu ul:first-child,
+			#nav-container nav.desktop .menu{
+				height: 100px;
+				}
+			#nav-container nav.desktop ul{
+				display: inline-table;
+				position: relative;
+				z-index: 100;
+				}
+				#nav-container nav.desktop ul:after {
+					content: ""; 
+					clear: both;
+					display: block;
+					}
+				#nav-container nav.desktop ul li:hover > ul {
+					display: block;
+					}
+				#nav-container nav.desktop ul li {
+					height: 100px;
+					float: left;
+					color: #202020;
+					}
+					#nav-container nav.desktop ul li.page_item_has_children>:first-child{
+						display: block;
+						position: relative;
+						padding: 16px 1em;
+						height: 100px;
+						font-size: 1.1em;
+						letter-spacing: 1px;
+						text-transform: uppercase;
+						}
+						#nav-container nav.desktop ul li.page_item_has_children>:first-child span{ padding-top: 23px; display: inline-block;}
+						#nav-container nav.desktop ul ul.children li.page_item_has_children>:first-child{
+							margin-top: inherit;
+							top: inherit;
+							height:inherit;
+							padding: 0;
+							font-size: 1em;
+							text-transform: capitalize;
+							letter-spacing: 0px;
+							}
+							#nav-container nav.desktop ul ul.children li.page_item_has_children>:first-child a{
+								display: inherit;
+								}
+							#nav-container nav.desktop ul ul.children li.page_item_has_children>:first-child span{ padding-top: 0; display: inline; }
+					#nav-container nav.desktop ul li.current_page_ancestor,
+					#nav-container nav.desktop ul li.current_page_parent,
+					#nav-container nav.desktop ul li.current_page_item{ background-color: #ef5b28; }
+					#nav-container nav.desktop ul li.current_page_ancestor a,
+					#nav-container nav.desktop ul li.current_page_parent a,
+					#nav-container nav.desktop ul li.current_page_item a{ color: #fff; }
+					#nav-container nav.desktop ul li:hover {
+						background-color: #ff8400;
+						}
+						#nav-container nav.desktop ul li:hover a {
+							color: #fff;
+							display: block;
+							text-decoration: none;
+							z-index: 200;
+							position: relative;
+							background-color: #ff8400;
+							}
+					#nav-container nav.desktop ul li a{
+						display: block;
+						text-decoration: none;
+						color: #000;
+						background-color: transparent;
+						}
+				#nav-container nav.desktop ul ul {
+					display: none;
+					position: absolute;
+					top: 100%;
+					background-color: white;
+					width: 180px;
+					-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+					-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+					box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+					z-index: 100;
+					}
+					#nav-container nav.desktop ul ul li {
+						height: inherit;
+						float: none; 
+						position: relative;
+						border-top-style: solid;
+						border-top-width: 1px;
+						border-top-color: #e5e5e5;
+						padding: 5px 18px 5px 18px;
+						}
+						#nav-container nav.desktop ul ul>:first-child {border-top-width: 0px;}
+						#nav-container nav.desktop ul ul:before {
+							height: 18px;
+							width: 100%;
+							background-color: #fff;
+							content: "";
+							display:block;
+							background-image: url('images/nav-triangle.gif');
+							background-repeat: no-repeat;
+							background-position: 10px 0px;
+							}
+						#nav-container nav.desktop ul li:hover ul li a{
+							color: #000;
+							background-color: transparent;
+							}
+							#nav-container nav.desktop ul li:hover ul li.current_page_item a{color: #fff;}
+							#nav-container nav.desktop ul li:hover ul li:hover a{
+							color: #fff;
+							}
+
+	/* ----------- Home Btn */
+	#nav-container nav.desktop div.menu ul li.page-item-4{
+		}
+		#nav-container nav.desktop div.menu ul li.page-item-4 a{
+			background-image: url(images/icon-home-dk.png);
+			background-repeat: no-repeat;
+			background-size: 21px 17px;
+			background-position: 0.875em 40px;
+			padding: 0 0.5em;
+			height: 100px;
+			}
+			#nav-container nav.desktop div.menu ul li.page-item-4:hover a,
+			#nav-container nav.desktop div.menu ul li.page-item-4.current_page_item a{
+				background-image: url(images/icon-home.png);
+				}
+			#nav-container nav.desktop div.menu ul li.page-item-4 a span{
+				visibility: hidden;
+				opacity: 0;
+				filter: alpha(opacity=0);
+				}
+
+
+/* =================================
+PRIMARY NAVIGATION MOBILE
+===================================*/
+#nav-container nav.mobile{
+	font-family: "futura-pt",sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	min-height: 100px;
+	-webkit-font-smoothing: antialiased;
+	}
+	#nav-container nav.mobile div.menu{
+		position: relative;
+		height: 100px;
+		overflow: hidden;
+		}
 
 
 /* =================================
@@ -215,6 +390,11 @@ XXXXXXXXXXX
 			display: inline-block;
 			z-index: 10;
 			top:80%;
+			font-family: "museo-slab",serif;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 1.5em;
+			text-transform: uppercase;
 			}
 		#home-container article .inside img{
 			position: absolute;
@@ -228,14 +408,17 @@ XXXXXXXXXXX
 				right: -150px;
 				}
 
-
-.rule-4{
-	height: 4px;
-}
-
-.orange-1{
-	background-color: #ef5b28;
-}
+#home-intro-container{
+	max-width: 1008px;
+	}
+	#home-intro-container #intro-text{
+		font-family: "museo-slab",serif;
+		font-style: normal;
+		font-weight: 300;
+		font-size: 2em;
+		color: #ef5b28;
+		text-align: center;
+		}
 
 @media screen and (max-width: 768px) {
 	#home-wrapper{margin-bottom: 0;}
@@ -260,3 +443,283 @@ XXXXXXXXXXX
 @media screen and (max-width: 460px) {
 	#home-container article .inside { max-height: 200px; }
 }
+
+.rule-4{
+	height: 4px;
+}
+
+.orange-1{
+	background-color: #ef5b28;
+}
+
+.home-shadow{
+	height: 20px;
+	background-image: url('images/home-gradient.gif');
+	background-repeat: repeat-x;
+}
+
+
+/* =================================
+PAGE TEMPLATE
+===================================*/
+#page-container{
+	max-width:1008px;
+	}
+#page-template-wrapper{
+	margin-top: 2em;
+	}
+
+#page-template-wrapper article a{
+	text-decoration: underline;
+	font-weight: 500;
+	color: #ef5b28; 
+	}
+
+#page-template-wrapper article h1,
+#page-template-wrapper article h2,
+#page-template-wrapper article h3,
+#page-template-wrapper article h4,
+#page-template-wrapper article h5,
+#page-template-wrapper article h6{
+	font-family: "museo-slab",serif;
+	font-style: normal;
+	font-weight: 400;
+	}
+	#page-template-wrapper article h2{
+		text-transform: uppercase;
+		color: #ef5b28;
+		font-size: 1em;
+		font-weight: 900;
+		letter-spacing: 1px;
+		margin: 0.5em 0em;
+		}
+		#page-template-wrapper article h2.title{
+			margin: 0 0 0.3em 0;
+			}
+	#page-template-wrapper article h1{
+		font-size: 2.3em;
+		font-weight: 300;
+		line-height: 1.2em;
+		margin: 0.5em 0em;
+		}
+		#page-template-wrapper article h1:first-of-type::after{
+			content: "";
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: #e5e5e5;
+			margin: 0.7em 0 0.2em 0;
+			}
+
+#page-template-wrapper article address{
+	font-family: "museo-slab",serif;
+	font-style: italic;
+	font-weight: 300;
+	font-size: 0.875em;
+	}
+#page-template-wrapper article p{
+	font-family: "futura-pt",sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.3em;
+	}
+	#page-template-wrapper article p img{
+		max-width: 100%;
+		width: auto;
+		padding: 2em 0;
+		}
+
+#page-template-wrapper article p.wp-caption-text{
+	color:#fff;
+	background-color: #ef5b28;
+	font-style: italic;
+	font-size: 0.9em;
+	padding: 5px 5px 5px 8px;
+	}
+#page-template-wrapper article .wp-caption{
+	padding: 2em 0;
+	}
+
+/* =================================
+PAGE SIDEBAR TEMPLATE
+===================================*/
+#page-sidebar-wrapper{
+	}
+	#page-sidebar-wrapper h2{
+		width: 80%;
+		font-family: "futura-pt",sans-serif;
+		text-transform: uppercase;
+		margin: 0;
+		font-weight: 500;
+		font-size: 1.4em;
+		letter-spacing: 1px;
+		background-color: #ef5b28;
+		padding: 0.4em 0.95em;
+		color: #fff;
+		}
+	#page-sidebar-wrapper .sidebar-item{
+		width: 80%;
+		background-color: #f2f2f2;
+		}
+
+	#page-sidebar-wrapper .sidebar-item ul.child-sidebar-menu>:first-child::before{
+		height: 19px;
+		width: 100%;
+		background-color: #f2f2f2;
+		content: "";
+		display:block;
+		background-image: url('images/nav-triangle-side.gif');
+		background-repeat: no-repeat;
+		background-position: 10px 0px;
+		}
+
+		#page-sidebar-wrapper .sidebar-item li.current_page_parent,
+		#page-sidebar-wrapper .sidebar-item li.current_page_item{ background-color: #ef5b28; }
+		#page-sidebar-wrapper .sidebar-item li.current_page_parent a,
+		#page-sidebar-wrapper .sidebar-item li.current_page_item a{color:#fff;}
+		#page-sidebar-wrapper .sidebar-item li.current_page_item a{ font-weight: 700; }
+		#page-sidebar-wrapper .sidebar-item li a{
+			display: block;
+			width: 100%;
+			font-family: "futura-pt",sans-serif;
+			padding: 0.4em 1em;
+			border-top-style: solid;
+			border-top-width: 1px;
+			border-top-color: #e5e5e5;
+			font-size: 1.1em;
+			letter-spacing: 1px;
+			}
+			#page-sidebar-wrapper .sidebar-item li:first-child a{ border-top-width: 0px; }
+			#page-sidebar-wrapper .sidebar-item li:hover{ }
+			#page-sidebar-wrapper .sidebar-item li a:hover{ text-decoration: none; background-color: #ff8400; color: #fff;}
+			#page-sidebar-wrapper .sidebar-item li a{ }
+				#page-sidebar-wrapper .sidebar-item li ul li a{
+					border-top-width: 0px;
+					background-color: transparent;
+					padding: 0.4em 1em 0.4em 2em;
+					}
+
+/* =================================
+FOOTER
+===================================*/
+#footer-wrapper{
+	background-color: #e3e3e3;
+	height: 340px;
+	position: relative;
+	margin-top: 5em;
+	}
+	#footer-container{
+		height: 100%;
+		padding-top:1em;
+		max-width: 1008px;
+		}
+		#footer-container footer{
+			height: inherit;
+			}
+			footer .contact{
+				height: 100%;
+				background-color: #fbfbfb;
+				}
+				footer .contact a.logo-footer{
+					width:170px;
+					display: block;
+					padding: 1em 0 1.2em 0 ;
+					}
+					footer .contact a.logo-footer img{ max-width: 100%;}
+
+				footer .contact .address::before{
+					height: 1px;
+					width: 100%;
+					background-image: url('images/dashed-border.gif');
+					background-repeat: repeat-x;
+					content: "";
+					display: block;
+					margin: 0.3em 0em;
+					}
+				footer .contact .address::after{
+					height: 1px;
+					width: 100%;
+					background-image: url('images/dashed-border.gif');
+					background-repeat: repeat-x;
+					content: "";
+					display: block;
+					margin: 0.5em 0em;
+					}
+				footer .contact .address p{
+					font-family: "futura-pt",sans-serif;
+					font-style: normal;
+					font-weight: 400;
+					font-size: 1em;
+					letter-spacing: 0.1em;
+					padding: 0.3em 0em;
+					}
+
+	#footer-container nav,
+	#footer-container nav div.menu,
+	#footer-container nav div.menu ul:first-child{
+		font-family: "futura-pt",sans-serif;
+		font-style: normal;
+		height: 100%;
+		}
+	#footer-container nav {padding-top: 1em;}
+	#footer-container nav div.menu{padding-left: 2em;}
+	#footer-container li.page_item_has_children{
+		text-transform: uppercase;
+		font-weight: 500;
+		min-height: 100%;
+		float:left;
+		width: 126px;
+		margin-right: 1.7em;
+		letter-spacing: 1px;
+		}
+		#footer-container ul li.page_item_has_children a:hover{
+			text-decoration: none;
+			cursor: default;
+			color: #000;
+			}
+			#footer-container ul li.page_item_has_children ul li a:hover{ cursor: auto; }
+
+	#footer-container li.page_item_has_children:last-child{ margin-right: 0;}
+	#footer-container li.page_item_has_children a{ font-size: 0.9em;}
+	#footer-container nav ul ul li{ line-height: 1.2em; padding: .2em 0 .2em 0; }
+		#footer-container nav ul li.page_item_has_children ul li a{ 
+			color: #666666;
+			font-size: 0.8em;
+			line-height: 0.8em;
+			letter-spacing: 0px;
+			text-transform: capitalize;
+			font-weight: 400;
+			font-family: arial, sans-serif;
+			}
+
+
+	#footer-wrapper #copyright{
+		position: absolute;
+		bottom: 0px;
+		font-size: 0.625em;
+		padding: 0.5em;
+		color: white;
+		}
+		#footer-wrapper #copyright div.container{
+			width:1008px;
+		}
+
+/* =================================
+RESPONSIVE IMAGES IN POSTS AND PAGES
+===================================*/
+.entry-content img,
+.comment-content img,
+.widget img {
+    max-width: 100%; /* Fluid images for posts, comments, and widgets */
+}
+img[class*="align"],
+img[class*="wp-image-"] {
+    height: auto; /* Make sure images with WordPress-added height and width >attributes are scaled correctly */
+}
+img.size-full {
+    max-width: 100%;
+    width: auto; /* Prevent stretching of full-size images with height and >>width attributes in IE8 */
+}
+.wp-caption { max-width: 97.5%; }
+
+
