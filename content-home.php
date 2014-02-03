@@ -38,15 +38,36 @@
 <section class="col-xs-12 home-shadow"></section>
 
 <section id="home-intro-wrapper" class="col-xs-12 no-p">
-	<section id="home-intro-container" class="container">
-		<div class="row half-p">
+	<section id="home-intro-container" class="container no-p">
+		<div class="row no-p">
 			<div id="intro-text" class="col-xs-12"><?php the_field('home_intro_text', 'options') ?></div>
 
 			<div id="next-steps" class="col-xs-12">
-				<span>Some Next Steps</span>
-				<span>To Help you get started</span>
+				<div class="first">Some Next Steps</div>
+				<div class="second">To Help you get started</div>
+				<div class="rule"></div>
 			</div>
 
+			<div class="col-xs-4 call-to-action">
+				<a href="http://manitouschool.org.s180309.gridserver.com/web/?page_id=8">
+					<h6>Learn About Manitou</h6>
+					<span>Meet our staff,<br>read our mission statement,<br>or ask us a question.</span>
+				</a>
+			</div>
+
+			<div class="col-xs-4 call-to-action">
+				<a href="http://manitouschool.org.s180309.gridserver.com/web/?page_id=33">
+					<h6>Apply to Manitou</h6>
+					<span>Learn about our<br>admissions process and get<br>a school application.</span>
+				</a>
+			</div>
+
+			<div class="col-xs-4 call-to-action">
+				<a href="http://manitouschool.org.s180309.gridserver.com/web/?page_id=52">
+					<h6>Our Programs</h6>
+					<span>Explore all the different<br>and distinct programs we<br>offer at Manitou.</span>
+				</a>
+			</div>
 			
 		</div>
 	</section>

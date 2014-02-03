@@ -89,13 +89,28 @@ function blog_cats($id){
 }
 
 /* ================================================================================
-SAMPLE SHORTCODE FOR WYSWYG EDITOR IN ADMIN
+CUSTOM CSS FOR WYSWYG EDITOR
 ================================================================================ */
-function red_color( $atts, $content = null ) {
-	return '<span class="red_color">' . $content . '</span>';
+function tms_theme_add_editor_styles() {
+    add_editor_style( 'custom-editor-style.css' );
+}
+add_action( 'init', 'tms_theme_add_editor_styles' );
+
+
+/* ================================================================================
+SHORTCODE TO CREATE BUTTON IN WYSWYG EDITOR
+================================================================================ */
+function standard_button( $atts, $content = null ) {
+	extract( shortcode_atts(
+		array(
+			'url' => '',
+		), $atts )
+	);
+
+	return '<div><a class="page-btn " href="' . $url . '" target="_blank">' . $content . '</a></div>';
 }
 
-add_shortcode( 'red_color', 'red_color' );
+add_shortcode( 'post_button', 'standard_button' );
 
 /* ================================================================================
 OVERRIDE IMG CAPTION SHORTCODE TO FIX 10PX ISSUE.
@@ -114,18 +129,6 @@ function fix_img_caption_shortcode($val, $attr, $content = null) {
 
     return '<div id="' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . (0 + (int) $width) . 'px">' . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
 }
-
-/* ================================================================================
-FUNCTIONS FOR REMOVING IMAGE ATTRIBUTES FROM POSTS
-================================================================================ 
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
-add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
-
-function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
-}
-*/
 
 /* ================================================================================
 FUNCTIONS FOR ADDING JAVASCRIPTS

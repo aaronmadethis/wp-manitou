@@ -17,7 +17,7 @@
 				</a>
 			</div>
 			<div class="col-xs-9 half-p">
-				<nav class="col-xs-10 no-p float-right desktop">
+				<nav class="col-xs-12 col-sm-12 col-md-10 no-p float-right desktop">
 					<?php
 						$args = array(
 							'depth'       => 2,
