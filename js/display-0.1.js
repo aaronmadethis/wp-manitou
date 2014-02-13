@@ -37,27 +37,11 @@ jQuery(document).ready(function($) {
 	NAVIGATION FIXES
 	--------------------------------------------------------------------------------------- */
 	function set_mobile_menu(){
-		if(win_w < 993){
-			var mobile_menu = "<div id='mobile-menu'>MENU</div>";
-
-			$('#nav-container nav').removeClass('desktop').addClass('mobile');
-			
-			if( $('#mobile-menu').length <= 0 ){
-				$('#nav-container .menu').prepend(mobile_menu);
-			}
-			
-
-			$('#mobile-menu').click(function(e){
-				$(this).parent().css('height', 'inherit');
-				console.log('clicked');
-				//e.preventDefault();
+			$('#nav-container .desktop .menu ul:first').slicknav({
+				label: 'Menu',
+				duration: 200,
+				prependTo:'#primary-nav-container',
 			});
-
-		}else{
-			$('#mobile-menu').remove();
-			$('#nav-container nav').removeClass('mobile').addClass('desktop');
-		}
-
 	}
 	set_mobile_menu();
 
@@ -86,7 +70,6 @@ jQuery(document).ready(function($) {
 	        win_w = $(window).width();
 			win_h = $(window).height();
 			set_window_ratio();
-			set_mobile_menu();
 	    }               
 	}
 

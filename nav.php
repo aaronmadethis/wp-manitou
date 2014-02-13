@@ -7,7 +7,7 @@
 <section id="nav-wrapper" class="col-xs-12 no-p">
 	<section id="nav-container" class="container">
 		<section class="row">
-			<div id="logo" class="col-xs-3 full-p">
+			<div id="logo" class="col-xs-12 col-sm-3 full-p">
 				<?php
 					$logo_id = get_field('logo', 'option');
 					$logo = wp_get_attachment_image_src( $logo_id, 'full' );
@@ -16,8 +16,8 @@
 					<img src="<?php echo $logo[0]; ?>">
 				</a>
 			</div>
-			<div class="col-xs-9 half-p">
-				<nav class="col-xs-12 col-sm-12 col-md-10 no-p float-right desktop">
+			<div id="primary-nav-container" class="col-xs-12 col-sm-9 half-p">
+				<nav class="col-xs-12 col-sm-12 col-md-11 no-p float-right desktop">
 					<?php
 						$args = array(
 							'depth'       => 2,

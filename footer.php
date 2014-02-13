@@ -6,7 +6,7 @@
 <section id="footer-wrapper" class="col-xs-12 no-p">
 	<section id="footer-container" class="container">
 		<footer class="row no-p">
-			<div class="col-xs-3 contact">
+			<div class="col-xs-12 col-sm-12 col-md-3 contact">
 				<a class="logo-footer" href="<?php echo home_url(); ?>">
 					<?php
 						$logo_id = get_field('logo', 'option');
@@ -16,7 +16,7 @@
 				</a>
 				<div class="address">
 					<p>Manitou Learning Center<br>7 Old Manitou Road,<br>Garrison, NY</p>
-					<p>646-295-7349<br>info@manitoulearningcenter.org</p>
+					<p>646-295-7349<br><a href="mailto:info@manitoulearningcenter.org">info@manitoulearningcenter.org</a></p>
 				</div>
 			</div>
 			<nav id="mega-footer" class="col-xs-9 no-p">

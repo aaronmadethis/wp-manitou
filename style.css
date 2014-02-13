@@ -198,10 +198,10 @@ PRIMARY NAVIGATION DESKTOP
 			}
 
 		#nav-container nav.desktop{ font-size: 100%; }
-		@media screen and (max-width: 1210px) {
+		@media screen and (max-width: 1200px) {
 			#nav-container nav.desktop{ font-size: 90%; }
 		}
-		@media screen and (max-width: 1014px) {
+		@media screen and (max-width: 992px) {
 			#nav-container nav.desktop{ font-size: 80%; }
 		}
 
@@ -338,42 +338,101 @@ PRIMARY NAVIGATION DESKTOP
 
 /* =================================
 PRIMARY NAVIGATION MOBILE
-===================================*/
-#nav-container nav.mobile{
+=================================== */
+.slicknav_menu {
+	display:none;
+}
+
+#primary-nav-container .slicknav_menu{
 	font-family: "futura-pt",sans-serif;
 	font-style: normal;
 	font-weight: 500;
-	min-height: 100px;
-	-webkit-font-smoothing: antialiased;
-	position: relative;
-	font-size: 100%;
+	background-color: transparent;
+	text-shadow: none;
 	}
-	#nav-container nav.mobile div.menu{
-		position: relative;
-		top: 30px;
-		overflow: hidden;
-		height: 34px;
-		float: right;
+	#primary-nav-container .slicknav_btn{
+		background-color: #ef5b28;
+		-webkit-border-radius: 0px;
+		-moz-border-radius: 0px;
+		border-radius: 0px;
+		text-shadow: none;
 		}
-		#nav-container nav.mobile div.menu #mobile-menu{
-			background-color: #fff;
-			color: #000;
-			padding: 0.5em;
-			width: 15em;
-			cursor: pointer;
-			background-image: url('images/icon-mobile-menu.gif');
-			background-repeat: no-repeat;
-			background-position: 12.5em 7px;
+		#primary-nav-container .slicknav_btn .slicknav_menutxt{
+			text-shadow: none;
 			}
-			#nav-container nav.mobile ul:first-of-type{
-				visibility: hidden;
-				opacity: 0;
-				filter: alpha(opacity=0);
+		#primary-nav-container .slicknav_menu .slicknav_icon-bar{
+			-webkit-box-shadow: 0 0px 0 rgba(0, 0, 0, 0);
+			-moz-box-shadow: 0 0px 0 rgba(0, 0, 0, 0);
+			box-shadow: 0 0px 0 rgba(0, 0, 0, 0);
+			}
+	#primary-nav-container .slicknav_nav{
+		color: #000;
+		-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+		-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+		background-color: #fff;
+		font-size: 1em;
+		font-weight: 300;
+		}
+		#primary-nav-container .slicknav_nav a{
+			color: #000;
+			margin: 0;
+			}
+			#primary-nav-container .slicknav_nav a:hover{
+				-webkit-border-radius: 0px;
+				-moz-border-radius: 0px;
+				border-radius: 0px;
+				background:#ef5b28;
+				color:#fff;
+				}
+				#primary-nav-container .slicknav_nav a:hover a:first-child{
+					color:#fff;
+					}
+				#primary-nav-container .slicknav_nav .slicknav_arrow{
+					font-size: 0.5em;
+					margin: 0.7em;
+					line-height: 0px;
+					display: inline-block;
 				}
 
+@media screen and (max-width: 992px) {
+	#primary-nav-container{
+		position: relative;
+		}
+
+	#nav-container nav.desktop{
+		display: none;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		}
+	.slicknav_menu {
+		display:block;
+		position: absolute;
+		width: 50%;
+		right: 0;
+		top:22px;
+		z-index: 500;
+		}
+}
+
+@media screen and (max-width: 767px) {
+	#primary-nav-container.half-p{
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+
+	#primary-nav-container .slicknav_menu {
+		position: relative;
+		width: 100%;
+		background-color: #ef5b28;
+		padding: 0;
+		margin: 1.5em 0 0 0;
+		top: 0;
+	}
+}
 
 /* =================================
-XXXXXXXXXXX
+HOME
 ===================================*/
 #home-wrapper{
 	position: relative;
@@ -434,6 +493,9 @@ XXXXXXXXXXX
 #home-intro-container{
 	max-width: 1008px;
 	}
+	#home-intro-container div.row{
+		margin:0;
+	}
 	#home-intro-container #intro-text{
 		font-family: "museo-slab",serif;
 		font-style: normal;
@@ -485,6 +547,7 @@ XXXXXXXXXXX
 		width: 100%;
 		}
 		#home-intro-container .call-to-action a:hover{ text-decoration: none; color: #000;}
+		#home-intro-container .call-to-action a:hover span{ text-decoration: underline; }
 		#home-intro-container .call-to-action h6{
 			font-family: "museo-slab",serif;
 			font-size: 1.250em;
@@ -524,7 +587,17 @@ XXXXXXXXXXX
 			background-color: #d8d8d8;
 			}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
+	#home-intro-container .call-to-action a{
+		height: inherit;
+		padding-bottom: 2em;
+		font-size: 150%;
+		}
+}
+@media screen and (max-width: 769px) {
+	#home-bg{display: none;}
+}
+@media screen and (max-width: 767px) {
 	#home-wrapper{margin-bottom: 0;}
 
 	#home-container article{
@@ -542,11 +615,12 @@ XXXXXXXXXXX
 				#home-container article .inside img.right{
 					right: 0px;
 					}
-}
-
-@media screen and (max-width: 460px) {
 	#home-container article .inside { max-height: 200px; }
 }
+@media screen and (max-width: 640px) {
+	#home-intro-container .call-to-action a{ font-size: 100%; }
+}
+
 
 .rule-4{
 	height: 4px;
@@ -644,9 +718,12 @@ PAGE TEMPLATE
 	padding: 2em 0;
 	}
 
+@media screen and (max-width: 768px) {
+	#page-template-wrapper article.no-p { padding: 0 1em; }
+}
 
 /* =================================
-PAGE SIDEBAR TEMPLATE
+PAGE BUTTON TEMPLATE
 ===================================*/
 #page-template-wrapper article a.page-btn {
 	background-color:#ef5b28;
@@ -671,7 +748,6 @@ PAGE SIDEBAR TEMPLATE
 		position:relative;
 		top:1px;
 		}
-
 
 /* =================================
 PAGE SIDEBAR TEMPLATE
@@ -731,7 +807,9 @@ PAGE SIDEBAR TEMPLATE
 					background-color: transparent;
 					padding: 0.4em 1em 0.4em 2em;
 					}
-
+@media screen and (max-width: 991px) {
+	#page-sidebar-wrapper { display: none; }
+}
 /* =================================
 FOOTER
 ===================================*/
@@ -786,6 +864,10 @@ FOOTER
 					letter-spacing: 0.1em;
 					padding: 0.3em 0em;
 					}
+					footer .contact .address p a,
+					footer .contact .address p a:hover{
+						color:#333;
+						}
 
 	#footer-container nav,
 	#footer-container nav div.menu,
@@ -801,8 +883,8 @@ FOOTER
 		font-weight: 500;
 		min-height: 100%;
 		float:left;
-		width: 126px;
-		margin-right: 1.7em;
+		width: 20%;
+		padding-right: 1.7em;
 		letter-spacing: 1px;
 		}
 		#footer-container ul li.page_item_has_children a:hover{
@@ -811,8 +893,13 @@ FOOTER
 			color: #000;
 			}
 			#footer-container ul li.page_item_has_children ul li a:hover{ cursor: auto; }
+		#footer-container ul li.page_item_has_children li.page_item_has_children{
+			width: 100%;
+			padding-right: 0;
+			clear: both;
+			} 
 
-	#footer-container li.page_item_has_children:last-child{ margin-right: 0;}
+	#footer-container li.page_item_has_children:last-child{ padding-right: 0;}
 	#footer-container li.page_item_has_children a{ font-size: 0.9em;}
 	#footer-container nav ul ul li{ line-height: 1.2em; padding: .2em 0 .2em 0; }
 		#footer-container nav ul li.page_item_has_children ul li a{ 
@@ -836,6 +923,10 @@ FOOTER
 		#footer-wrapper #copyright div.container{
 			max-width:1008px;
 		}
+
+@media screen and (max-width: 991px) {
+	#mega-footer { display: none; }
+}
 
 /* =================================
 RESPONSIVE IMAGES IN POSTS AND PAGES
