@@ -15,8 +15,8 @@
 					<img src="<?php echo $logo[0]; ?>">
 				</a>
 				<div class="address">
-					<p>Manitou Learning Center<br>7 Old Manitou Road,<br>Garrison, NY</p>
-					<p>646-295-7349<br><a href="mailto:info@manitoulearningcenter.org">info@manitoulearningcenter.org</a></p>
+					<p><?php the_field('footer_address', 'option'); ?></p>
+					<p><?php the_field('footer_phone', 'option'); ?><br><a href="mailto:<?php the_field('footer_email', 'option'); ?>"><?php the_field('footer_email', 'option'); ?></a></p>
 				</div>
 			</div>
 			<nav id="mega-footer" class="col-xs-9 no-p">
