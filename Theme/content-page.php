@@ -23,6 +23,12 @@
 							<article class="col-xs-12 col-sm-12 col-md-8 no-p entry-content">
 								<h2 class="title"><?php the_title(); ?></h2>
 								<?php the_content(); ?>
+
+								<?php
+								if( is_page('Our People') ){
+									get_template_part( 'our-people' );
+								}
+								?>
 							</article>
 
 						<?php endwhile; ?>

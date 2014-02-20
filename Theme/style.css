@@ -750,6 +750,21 @@ PAGE BUTTON TEMPLATE
 		}
 
 /* =================================
+OUR PEOPLE CUSTOM
+===================================*/
+.our-people-profile{
+	padding: 2em 0;
+}
+
+#page-template-wrapper article p.profile-img{
+	padding: 0;
+	margin: 0;
+	}
+	#page-template-wrapper article p.profile-img img{
+		padding: 0 1em 0.5em 0;
+		}
+
+/* =================================
 PAGE SIDEBAR TEMPLATE
 ===================================*/
 #page-sidebar-wrapper{
