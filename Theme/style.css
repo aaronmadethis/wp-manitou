@@ -749,6 +749,13 @@ PAGE BUTTON TEMPLATE
 		top:1px;
 		}
 
+#page-template-wrapper article ul{
+	font-family: "futura-pt",sans-serif;
+	font-size: 1.125em;
+	list-style: disc;
+	padding-left: 1em;
+	}
+
 /* =================================
 OUR PEOPLE CUSTOM
 ===================================*/
