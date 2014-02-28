@@ -6,7 +6,7 @@
 <section id="home-wrapper" class='col-xs-12 no-p'>
 
 	<div id="home-bg">
-		<img src="<?php echo $theme_dir_path; ?>/images/blur-test.jpg">
+		<img src="<?php echo $theme_dir_path; ?>/images/Stocksy_blur.jpg">
 	</div>
 
 
@@ -18,17 +18,19 @@
 				<?php while(the_repeater_field('home_hero', 'options')): ?>
 					<article class='col-xs-12 col-sm-3 col-sm-3 half-p'>
 						<div class="inside">
-							<?php
-								$logo_id = get_sub_field('home_hero_image');
-								$logo = wp_get_attachment_image_src( $logo_id, 'full' );
-							?>
-							<img src="<?php echo $logo[0]; ?>" class="<?php if($loop_counter == 3) echo 'right'; ?>">
-							<div class="headline">
-								<?php 
-									echo get_sub_field('image_text');
-									++$loop_counter
+							<a href="<?php echo get_sub_field('hero_link'); ?>">
+								<?php
+									$logo_id = get_sub_field('home_hero_image');
+									$logo = wp_get_attachment_image_src( $logo_id, 'full' );
 								?>
-							</div>
+								<img src="<?php echo $logo[0]; ?>" class="<?php if($loop_counter == 3) echo 'right'; ?> hero-<?php echo $loop_counter; ?>">
+								<div class="headline">
+									<?php 
+										echo get_sub_field('image_text');
+										++$loop_counter
+									?>
+								</div>
+							</a>
 						</div>          
 					</article>
 				<?php endwhile; ?>

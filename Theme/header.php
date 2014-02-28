@@ -19,6 +19,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="Description" content="<?php bloginfo( 'description' ); ?>">
+<meta name="keywords" content="Garrison, New York, Hudson Valley, Manitou School, private school, preschool, bridge class, kindergarten, bilingual, experiential, purposeful play, Maria Stein-Marrison, Julisa Rincon-Tomizawa , Hilary Hayes, Cold Spring, Spanish, progressive, school">
 <title><?php bloginfo( $show='name' ) ?></title>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />

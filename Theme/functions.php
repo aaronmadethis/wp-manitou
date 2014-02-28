@@ -130,6 +130,24 @@ function fix_img_caption_shortcode($val, $attr, $content = null) {
     return '<div id="' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . (0 + (int) $width) . 'px">' . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
 }
 
+
+/* ================================================================================
+COUNTS THE NUMBER OF DATABASE HITS PER PAGE
+================================================================================ 
+add_action( 'wp_footer', 'tcb_note_server_side_page_speed' );
+function tcb_note_server_side_page_speed() {
+	date_default_timezone_set( get_option( 'timezone_string' ) );
+	$content  = '[ ' . date( 'Y-m-d H:i:s T' ) . ' ] ';
+	$content .= 'Page created in ';
+	$content .= timer_stop( $display = 0, $precision = 2 );
+	$content .= ' seconds from ';
+	$content .= get_num_queries();
+	$content .= ' queries';
+	if( ! current_user_can( 'administrator' ) ) $content = "<!-- $content -->";
+	echo $content;
+}
+*/
+
 /* ================================================================================
 FUNCTIONS FOR ADDING JAVASCRIPTS
 ================================================================================ */

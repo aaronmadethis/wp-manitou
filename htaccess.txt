@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^/?$ web/index.php [L,QSA,NC]
+
+# Redirect /index.html http://www.manitouschool.com/web/
