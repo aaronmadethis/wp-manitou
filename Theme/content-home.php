@@ -21,7 +21,6 @@
 							<a href="<?php echo get_sub_field('hero_link'); ?>">
 								<?php
 									$logo_id = get_sub_field('home_hero_image');
-									$logo = wp_get_attachment_image_src( $logo_id, 'full' );
 									$logo = wp_get_attachment_image_src( $logo_id, 'home-hero' );
 								?>
 								<img src="<?php echo $logo[0]; ?>" class="<?php if($loop_counter == 3) echo 'right'; ?> hero-<?php echo $loop_counter; ?>">
