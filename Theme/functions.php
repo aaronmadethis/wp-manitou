@@ -10,6 +10,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'blog-full', 269, 9999, false );
 	add_image_size( 'blog-small', 123, 9999, false );
 	add_image_size( 'projects-large', 2000, 9999, false );
+	add_image_size( 'home-hero', 755, 9999, false );
 }
 
 /* ================================================================================
