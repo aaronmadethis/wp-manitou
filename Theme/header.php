@@ -35,3 +35,4 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
+	<div id="all-wrapper" class="col-xs-12 no-p">

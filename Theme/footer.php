@@ -17,6 +17,7 @@
 				<div class="address">
 					<p><?php the_field('footer_address', 'option'); ?></p>
 					<p><?php the_field('footer_phone', 'option'); ?><br><a href="mailto:<?php the_field('footer_email', 'option'); ?>"><?php the_field('footer_email', 'option'); ?></a></p>
+					<p><a href="https://www.facebook.com/ManitouLearningCenter" target="_blank">Facebook</a>&nbsp; | &nbsp;<a href="https://twitter.com/manitouschool" target="_blank">Twitter</a></p>
 				</div>
 			</div>
 			<nav id="mega-footer" class="col-xs-9 no-p">
@@ -58,5 +59,6 @@
   ga('send', 'pageview');
 
 </script>
+</div> <!-- end all-wrapper -->
 </body>
 </html>

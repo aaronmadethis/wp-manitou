@@ -2,8 +2,19 @@
 	/* ----- Navigation Template ----- */
 	$theme_dir_path = get_stylesheet_directory_uri();
 ?>
-
-<section class="col-xs-12 rule-4 orange-1"></section>
+<?php
+	$callout = " ";
+	if( get_field('home_alert', 'options') ){
+		$callout = 'callout';
+	}
+?>
+<section class="col-xs-12 rule-4 orange-1 <?php echo $callout; ?>">
+	<?php if( get_field('home_alert', 'options') ) : ?>
+		<div class="container">
+			<a href="<?php the_field('callout_link', 'options'); ?>"><?php the_field('home_alert', 'options') ?></a>
+		</div>
+	<?php endif; /*get_field*/ ?>
+</section>
 <section id="nav-wrapper" class="col-xs-12 no-p">
 	<section id="nav-container" class="container">
 		<section class="row">

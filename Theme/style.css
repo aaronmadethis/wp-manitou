@@ -25,18 +25,27 @@ font-style: normal;
 font-weight: 500;
 */
 
-html{
+html,
+body{
 	width: 100%;
 	height: 100%;
 }
 body{
+	display: block;
 	position: relative;
 	font-size: 16px;
 	font-family: arial, sans-serif;
 	width: 100%;
-	min-height: 100%;
+	/*min-height: 100%;*/
 	-webkit-font-smoothing: antialiased;
 }
+#all-wrapper{
+	position: relative;
+	height:auto !important; /* real browsers */
+	height:100%; /* IE6: treaded as min-height*/
+	min-height:100%;
+	}
+
 ul{
 	list-style: none;
 	padding: 0;
@@ -164,6 +173,48 @@ IMAGE BLUR
 		filter: url('filters.svg#blur');
 		}
 
+
+/* =================================
+CALLOUT
+===================================*/
+body .rule-4.callout{
+	height: 30px;
+	}
+
+.callout div{
+	max-width: 1008px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 30px;
+	font-family: "futura-pt",sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	}
+	.callout a{
+		width: 100%;
+		height: 24px;
+		margin-top: 3px;
+		display: block;
+		color: #333;
+		background-color: #f2f2f2;
+		line-height: 23px;
+		vertical-align: middle;
+		text-align: center;
+		padding: 0 10px;
+		}
+		.callout a:hover{
+			color:#ef5b28;
+			}
+
+@media screen and (max-width: 767px) {
+	body .rule-4.callout{
+		height: 60px;
+	}
+	.callout a{
+		height:54px;
+		line-height: 1.4em;
+		}
+}
 
 /* =================================
 PRIMARY NAVIGATION DESKTOP
@@ -492,6 +543,10 @@ HOME
 			#home-container article .inside img.hero-4{left: 0px;}
 			#home-container article .inside img.right{ right: 0px; }
 
+#home-intro-wrapper{
+	padding-bottom: 35.5em;
+	}
+
 #home-intro-container{
 	max-width: 1008px;
 	}
@@ -655,6 +710,11 @@ HOME
 /* =================================
 PAGE TEMPLATE
 ===================================*/
+#page-wrapper{
+	padding-bottom: 29.5em;
+	/*margin-bottom: 340px;*/
+	}
+
 #page-container{
 	max-width:1008px;
 	}
@@ -863,10 +923,14 @@ FOOTER
 ===================================*/
 #footer-wrapper{
 	background-color: #e3e3e3;
-	height: 340px;
-	position: relative;
+	height: 370px;
+	position: absolute;
 	margin-top: 5em;
+	bottom:0;
 	}
+	body.home #footer-wrapper{
+		/*position: relative;*/
+		}
 	#footer-container{
 		height: 100%;
 		padding-top:1em;
