@@ -3,11 +3,11 @@
 	$theme_dir_path = get_stylesheet_directory_uri();
 ?>
 
-<section id="page-wrapper">
+<section id="page-wrapper" itemprop="mainContentOfPage">
 	<section id="page-container" class="container">
 		<div class="row">
 
-			<section id="page-template-wrapper" class="col-xs-12 no-p">
+			<section id="page-template-wrapper" class="col-xs-12 no-p" itemscope itemtype="http://schema.org/BlogPosting">
 				<?php if ( have_posts() ) : ?>
 						<?php while ( have_posts() ) : the_post(); ?>
 
@@ -21,8 +21,8 @@
 							</div>
 
 							<article class="col-xs-12 col-sm-12 col-md-8 no-p entry-content">
-								<h2 class="title"><?php the_title(); ?></h2>
-								<?php the_content(); ?>
+								<h2 class="title" itemprop="headline"><?php the_title(); ?></h2>
+								<div itemprop="articleBody"><?php the_content(); ?></div>
 
 								<?php
 								if( is_page('Our People') ){

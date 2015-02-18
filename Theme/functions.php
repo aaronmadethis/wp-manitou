@@ -94,6 +94,7 @@ CUSTOM CSS FOR WYSWYG EDITOR
 ================================================================================ */
 function tms_theme_add_editor_styles() {
     add_editor_style( 'custom-editor-style.css' );
+	add_post_type_support( 'page', 'excerpt' );
 }
 add_action( 'init', 'tms_theme_add_editor_styles' );
 
@@ -131,6 +132,104 @@ function fix_img_caption_shortcode($val, $attr, $content = null) {
     return '<div id="' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . (0 + (int) $width) . 'px">' . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
 }
 
+
+/* ================================================================================
+HOME PAGE HEADER TITLE - HACK FOR CUSTOM HOME PAGE
+================================================================================ */
+add_filter( 'wp_title', 'baw_hack_wp_title_for_home' );
+function baw_hack_wp_title_for_home( $title )
+{
+  if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+    return __( 'Home', 'theme_domain' ) . ' | ' . get_bloginfo( 'description' );
+  }
+  return $title;
+}
+
+/* ================================================================================
+BETTER POST IMAGE THUMBNAIL
+* checks for post featured image first
+* if not featured image attempt to scrape the post for the first image
+* if no image in the post then use a general placeholder image
+================================================================================ */
+function ap_better_thunbnails( $post_id, $img_size ){
+	$theme_dir_path = get_stylesheet_directory_uri();
+	
+	if( has_post_thumbnail( $post_id ) ){
+		$image_id = get_post_thumbnail_id($post_id);
+		$thumb = wp_get_attachment_image_src($image_id, $img_size);
+		return $thumb;
+	}else{
+		$args = array(
+			'post_type' => 'attachment',
+			'numberposts' => -1,
+			'post_status' => null,
+			'post_parent' => $post_id
+		);
+		$attachments = get_posts( $args );
+		if ( $attachments ) {
+			$image_id = $attachments[0]->ID;
+			$thumb = wp_get_attachment_image_src($image_id, $img_size);
+			return $thumb;
+		}else{
+			$post_obj = get_post($post_id);
+			$html = apply_filters ("the_content", $post_obj->post_content);
+			preg_match('/<img [^>]*src=["|\']([^"|\']+)/i', $html, $matches);
+			$src = $matches[1];
+
+			if($src){
+				$thumb = array();
+				$thumb[0] = $src;
+				return $thumb;
+			}else{
+				$thumb = array();
+				$src = $theme_dir_path . "/images/facebook-img.jpg";
+				$thumb[0] = $src;
+				//$image_id = get_field('placeholder_image', 'options');
+				//$thumb = wp_get_attachment_image_src($image_id, $img_size);
+				return $thumb;
+			}
+		}
+	}
+}
+
+/* ================================================================================
+FACEBOOK SHARING FOR HEADER
+================================================================================ */
+function get_facebook_share_meta($post){
+	$theme_dir_path = get_stylesheet_directory_uri();
+	
+	if( is_page($post) ){
+		$fb_meta = array();
+		$fb_meta['title'] = $post->post_title;
+		$fb_meta['description'] = $post->post_excerpt;
+		$fb_meta['type'] = 'website';
+		$fb_meta['url'] = get_permalink( $post->ID );
+
+		if(!$fb_meta['description']){
+			$fb_meta['description'] = "The Manitou School is a private school located in Cold Spring, New York, that emphasizes bilingual education, experiential learning and purposeful play in its curriculum.";
+		}
+
+//		$image_id = get_post_thumbnail_id($post->ID);
+//		$share_img = wp_get_attachment_image_src($image_id, 'post-thumbnail');
+		$share_img = ap_better_thunbnails( $post->ID, 'post-thumbnail' );
+
+		if(!$share_img){
+			$fb_meta['image'] = $theme_dir_path . "/images/facebook-img.jpg";
+		}else{
+			$fb_meta['image'] = $share_img[0];
+		}
+		
+	}else{
+		$fb_meta = array();
+		$fb_meta['title'] = "Manitou School";
+		$fb_meta['description'] = "The Manitou School is a private school located in Cold Spring, New York, that emphasizes bilingual education, experiential learning and purposeful play in its curriculum.";
+		$fb_meta['type'] = 'website';
+		$fb_meta['url'] = 'http://manitouschool.org/';
+		$fb_meta['image'] = $theme_dir_path . "/images/facebook-img.jpg";
+	}
+
+	return $fb_meta;
+}
 
 /* ================================================================================
 COUNTS THE NUMBER OF DATABASE HITS PER PAGE

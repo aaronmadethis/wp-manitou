@@ -3,7 +3,7 @@
 	$theme_dir_path = get_stylesheet_directory_uri();
 ?>
 
-<section id="home-wrapper" class='col-xs-12 no-p'>
+<section id="home-wrapper" class='col-xs-12 no-p' itemprop="mainContentOfPage">
 
 	<div id="home-bg">
 		<img src="<?php echo $theme_dir_path; ?>/images/Stocksy_blur.jpg">
@@ -60,7 +60,7 @@
 				<?php while(the_repeater_field('home_cta', 'options')): ?>
 
 					<div class="col-xs-12 col-sm-12 col-md-4 call-to-action">
-						<a href="<?php echo get_sub_field('cta_link'); ?>">
+						<a itemprop="significantLink" href="<?php echo get_sub_field('cta_link'); ?>">
 							<h6><?php echo get_sub_field('cta_title'); ?></h6>
 							<span><?php echo get_sub_field('cta_subhead'); ?></span>
 						</a>

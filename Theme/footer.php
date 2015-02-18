@@ -14,10 +14,12 @@
 					?>
 					<img src="<?php echo $logo[0]; ?>">
 				</a>
-				<div class="address">
-					<p><?php the_field('footer_address', 'option'); ?></p>
-					<p><?php the_field('footer_phone', 'option'); ?><br><a href="mailto:<?php the_field('footer_email', 'option'); ?>"><?php the_field('footer_email', 'option'); ?></a></p>
-					<p><a href="https://www.facebook.com/ManitouLearningCenter" target="_blank">Facebook</a>&nbsp; | &nbsp;<a href="https://twitter.com/manitouschool" target="_blank">Twitter</a></p>
+				<div class="address" itemscope itemtype="http://schema.org/Organization">
+					<p>
+						<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress "><?php the_field('footer_address', 'option'); ?></span>
+					</p>
+					<p><span itemprop="telephone"><?php the_field('footer_phone', 'option'); ?></span><br><span itemprop="email"><a href="mailto:<?php the_field('footer_email', 'option'); ?>"><?php the_field('footer_email', 'option'); ?></a></span></p>
+					<p><a href="https://www.facebook.com/ManitouSchool" target="_blank">Facebook</a>&nbsp; | &nbsp;<a href="https://twitter.com/manitouschool" target="_blank">Twitter</a></p>
 				</div>
 			</div>
 			<nav id="mega-footer" class="col-xs-9 no-p">
