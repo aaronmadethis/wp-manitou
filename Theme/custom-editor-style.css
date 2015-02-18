@@ -8,3 +8,11 @@ body#tinymce.wp-editor h1 {
 	line-height: 1.3em;
 	font-weight: normal;
 }
+
+body#tinymce.wp-editor h5{
+	margin-bottom: 5px;
+}
+
+body#tinymce.wp-editor h6{
+	margin-top: 5px;
+}
